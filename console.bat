@@ -1,0 +1,1 @@
+@START "MaNGOS Admin terminal" CMD /K scripts\setup.bat

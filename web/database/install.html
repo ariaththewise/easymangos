@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <title>Instalación de la base de datos de MaNGOS.</title>
+        
+        <link rel="stylesheet" href="css/styles.css" />
+        <script type="text/javascript" src="../utils/jquery.js"></script>
+        <script type="text/javascript" src="js/install.js"></script>
+    </head>
+    
+    <body>
+        <div class="content">
+            <div class="logoContainer">
+                <img src="img/mangos_logo.png" alt="MaNGOS Logo" />
+                <span class="bottomLogo">Database Manager</span>
+            </div>
+            <br/>
+            <table class="table_centered">
+                <tr>
+                    <th colspan="2">Configuración de MySQL</th>
+                </tr>
+                <tr>
+                    <td>Servidor: </td><td><input type="text" id="mysqlHost" /></td>
+                </tr>
+                <tr>
+                    <td>Puerto: </td><td><input type="text" id="mysqlPort" /></td>
+                </tr>
+                <tr>
+                    <td>Usuario: </td><td><input type="text" id="mysqlUser" /></td>
+                </tr>
+                <tr>
+                    <td>Password: </td><td><input type="text" id="mysqlPass" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"> </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="button" onclick="checkMySQLConn();" value="Comprobar conexión"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><div class="mysqlConnState" id="mysqlConnState"></div></td>
+                </tr>
+            </table>
+        </div>        
+    </body>
+</html>

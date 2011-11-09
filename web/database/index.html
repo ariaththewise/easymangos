@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <title>Herramienta de administración de la base de datos de MaNGOS.</title>
+        
+        <link rel="stylesheet" href="css/styles.css" />
+        <script type="text/javascript" src="../utils/jquery.js"></script>
+        <script type="text/javascript" charset="ansi" src="js/index.js"></script>
+    </head>
+    
+    <body>        
+        <div class="content">
+            <div class="logoContainer">
+                <img src="img/mangos_logo.png" alt="MaNGOS Logo" />
+                <span class="bottomLogo">Database Manager</span>
+            </div>
+            <br/>
+            <table class="menu_centered">
+                <tr>
+                    <td><img id="butInstall" src="img/install_unselected.png" alt="Install" onclick="goInstall();" onmouseover="litInstall();" onmouseout="unlitInstall();"/></td>
+                </tr>
+                <tr>
+                    <td><img id="butBackup" src="img/backup_unselected.png" alt="Backup" onclick="goBackup();" onmouseover="litBackup();" onmouseout="unlitBackup();"/></td>
+                </tr>
+                <tr>
+                    <td><img id="butUpdate" src="img/update_unselected.png" alt="Update" onclick="goUpdate();" onmouseover="litUpdate();" onmouseout="unlitUpdate();"/></td>
+                </tr>
+                <tr>
+                    <td><img id="butUninstall" src="img/uninstall_unselected.png" alt="Uninstall" onclick="uninstall();" onmouseover="litUninstall();" onmouseout="unlitUninstall();"/></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

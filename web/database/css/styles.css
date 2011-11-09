@@ -1,0 +1,53 @@
+﻿body
+{
+    background-image:url('../img/background.jpg');
+    background-repeat:no-repeat;
+}
+
+.bottomLogo
+{
+
+}
+
+.content
+{
+    margin-left:auto;
+    margin-right:auto;
+    width:80%;
+    height:400px;
+    background-image:url('../img/content_background.png');
+}
+
+.logoContainer
+{
+    margin-top:30px;
+    margin-left:auto;
+    margin-right:auto;
+    width:195px;
+    text-align:center;
+}
+
+.menu_centered
+{
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+
+.mysqlConnState
+{
+    border:thin black solid;
+    margin-left:auto;
+    margin-right:auto;
+    width:90%;
+    height:20px;
+}
+
+.table_centered
+{
+    border:thin black solid;
+    background-color:white;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
