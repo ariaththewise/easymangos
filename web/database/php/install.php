@@ -1,6 +1,4 @@
 <?php
-    include "mysql_import.php";
-    
     $mysqlHost = $_POST["mysqlHost"];
     $mysqlUser = $_POST["mysqlUser"];
     $mysqlPass = $_POST["mysqlPass"];
@@ -8,15 +6,15 @@
 
     
     if($mysqlHost == "" ||
-           $mysqlUser == "" ||
-           $mysqlPass == "" ||
-           $mysqlPort == "")
+       $mysqlUser == "" ||
+       $mysqlPass == "" ||
+       $mysqlPort == "")
     {
         echo("MYSQL_SETUP_MISSING");
     }
     else
     {
-        $dbLink = mysql_connect($mysqlHost.":".$mysqlPort, $mysqlUser, $mysqlPass);
+        $dbLink = mysqli_connect($mysqlHost, $mysqlUser, $mysqlPass, $mysqlPort);
         
         if($dbLink == NULL)
         {
@@ -24,7 +22,7 @@
         }
         else
         {
-            mysql_close($dbLink);
+            mysqli_close($dbLink);
             echo("DB_INSTALL_OK");
         }
     }

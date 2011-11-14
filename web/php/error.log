@@ -1,0 +1,1 @@
+[14-Nov-2011 12:45:05] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to MySQL server on 'localhost' (10061) in M:\TEMP\MaNGOSR2\web\php\mysqlconn_test.php on line 7

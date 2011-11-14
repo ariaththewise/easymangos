@@ -1,6 +1,6 @@
 <?php
     $startDir = getcwd();
-    chdir("../../../../");
+    chdir("../../../");
     
     $root = getcwd();    
     

@@ -5,11 +5,12 @@
         <title>Instalación de la base de datos de MaNGOS.</title>
         
         <link rel="stylesheet" href="css/styles.css" />
-        <script type="text/javascript" src="../utils/jquery.js"></script>
-        <script type="text/javascript" src="js/install.js"></script>
+        <script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="../js/check_mysql_conn.js"></script>
+        <script type="text/javascript" src="./js/install.js"></script>
     </head>
     
-    <body>
+    <body onload="getMySQLConfig();">
         <div class="content">
             <div class="logoContainer">
                 <img src="img/mangos_logo.png" alt="MaNGOS Logo" />

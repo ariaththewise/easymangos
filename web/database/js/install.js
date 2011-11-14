@@ -1,43 +1,33 @@
-function checkMySQLConn()
+function getMySQLConfig()
 {
-    mysqlHost = $("#mysqlHost").val();
-    mysqlUser = $("#mysqlUser").val();
-    mysqlPass = $("#mysqlPass").val();
-    mysqlPort = $("#mysqlPort").val();
-    
     $.ajax({
         async:      true,
         type:       "POST",
-        url:        "php/mysqlconn_test.php",
+        url:        "./php/load_mysql_config.php",
         
         beforeSend: function()
                     {
-                        $("#mysqlConnState").css("background-color", "white");
-                    },
-        
-        data:       { mysql_host : mysqlHost ,
-                      mysql_user : mysqlUser ,
-                      mysql_pass : mysqlPass ,
-                      mysql_port : mysqlPort },
-        
-        error:      function()
-                    {
-                        $("#mysqlConnState").css("background-color", "red");
+                        $("#mysqlHost").attr("value", "");
+                        $("#mysqlPort").attr("value", "");
+                        $("#mysqlUser").attr("value", "");
+                        $("#mysqlPass").attr("value", "");
                     },
         
         success:    function(data)
                     {
-                        if(data == "")
+                        if(data != "")
                         {
-                            $("#mysqlConnState").css("background-color", "red");
-                        }
-                        else
-                        {
-                            if($.parseJSON(data) == true)
-                            {
-                                $("#mysqlConnState").css("background-color", "lime");
-                            }
-                        }
+                            fillMySQLConfig(JSON.parse(data));
+                        }                        
                     }
     });
+}
+
+
+function fillMySQLConfig(mysqlConfig)
+{
+    $("#mysqlHost").attr("value", mysqlConfig[0]);
+    $("#mysqlPort").attr("value", mysqlConfig[1]);
+    $("#mysqlUser").attr("value", mysqlConfig[2]);
+    $("#mysqlPass").attr("value", mysqlConfig[3]);
 }
