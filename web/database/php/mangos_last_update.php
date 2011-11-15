@@ -16,11 +16,11 @@
         $port = $_POST["port"];
     }
     
-    $ytdbLastFixQuery = "SELECT column_name FROM information_schema.columns WHERE ".
-                        "table_schema='mangos' AND table_name='db_version_ytdb' AND ".
-                        "column_name LIKE '%_FIX_%';";
+    $mangosLastUpdateQuery = "SELECT column_name FROM information_schema.columns WHERE ".
+                             "table_schema='mangos' AND table_name='db_version' AND ".
+                             "column_name LIKE 'required_%';";
                         
-    $ytdbLastFix = "";
+    $mangosLastUpdate = "";
     
     $dbLink = mysql_connect($host.":".$port, $user, $pass);
     
@@ -30,26 +30,26 @@
     }
     else
     {
-        $result = mysql_query($ytdbLastFixQuery, $dbLink);
+        $result = mysql_query($mangosLastUpdateQuery, $dbLink);
         
         if($result)
         {
             while($row = mysql_fetch_assoc($result))
             {
-                $ytdbLastFix = substr($row["column_name"], 0, 3);
+                $mangosLastUpdate = substr($row["column_name"], 9);
             }
             
             mysql_free_result($result);
             mysql_close($dbLink);
-            
-            echo($ytdbLastFix);
+        
+            echo($mangosLastUpdate);
         }
-        else if($result == FALSE || (mysql_error($dbLink) != ""))
+        else
         {
             mysql_free_result($result);
             mysql_close($dbLink);
             
-            echo($LAST_YTDB_FIX_RETRIEVAL_ERROR);
+            echo($LAST_MANGOS_UPDATE_RETRIEVAL_ERROR);
         }
     }
 ?>

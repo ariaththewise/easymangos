@@ -1,0 +1,159 @@
+ul.dropdown {
+	cursor: default;
+	padding: 2px;
+	position: relative;
+}
+ul.dropdown li {
+	float: left;
+	font-weight: bold;
+	list-style: none;
+	padding: 4px 8px 6px 8px;
+	zoom: 1;
+}
+ul.dropdown li.right {
+	float: right;
+}
+ul.dropdown a:hover {
+	color: #2779AA;
+}
+ul.dropdown li a {
+	color: #2779AA;
+	display: block;
+	font-weight: bold;
+	text-decoration: none;
+}
+ul.dropdown li.hover, ul.dropdown li:hover {
+	background: #FAFAFA;
+	border: 1px solid #AED0EA;
+	border-bottom-color: #FAFAFA;
+	padding: 3px 7px 5px 7px;
+	position: relative;
+}
+ul.dropdown li.right:hover {
+	border-bottom-color: #FAFAFA;
+}
+ul.dropdown li.hover a {
+	color: black;
+}
+ul.dropdown ul {
+	background: #FAFAFA url(themes/chocolate/images/cmenu-bg.gif) repeat-y scroll left top;
+	border: 1px solid #AED0EA;
+	left: -1px;
+	list-style: none;
+	padding: 3px;
+	position: absolute;
+	top: 100%;
+	visibility: hidden;
+}
+ul.dropdown ul li {
+	color: #000;
+	cursor: pointer;
+	float: none;
+	font-weight: normal;
+	padding: 5px 8px 5px 32px;
+}
+ul.dropdown ul li:hover {
+	background: url("themes/chocolate/images/ui-bg_highlight.png") repeat-x scroll 50% 54% #DBEEFA;
+	border: 1px solid #AED0EA;
+	color: #2779AA;
+	padding: 4px 7px 4px 31px;
+}
+ul.dropdown ul li a {
+	background: url("themes/chocolate/images/objects.png") no-repeat;
+	background-position: 8px 8px;
+	display: inline-block;
+	margin-left: -28px;
+	padding-left: 28px;
+	text-decoration: none;
+	white-space: nowrap;
+	width: 100%;
+}
+ul.dropdown ul li a:hover {
+	color: #2779AA;
+}
+ul.dropdown ul li:hover a {
+	color: #2779AA;
+}
+ul.dropdown ul ul {
+	left: 100%;
+	top: 0;
+}
+ul.dropdown li:hover > ul {
+	visibility: visible;
+}
+ul.dropdown ul ul li a:hover {
+	color: black;
+}
+ul.dropdown ul ul li:hover a {
+	color: black;
+}
+ul.dropdown li.separator, ul.dropdown li.separator:hover {
+	background: none;
+	border: none;
+	color: #C5C5C5;
+	display: block;
+	font-size: 5px;
+	margin: 0;
+	padding: 0 5px 0 33px;
+}
+ul.dropdown a:focus {
+	outline: 0;
+}
+ul.context {
+	background: #FAFAFA url(themes/chocolate/images/cmenu-bg.gif) repeat-y scroll left top;
+	border: 1px solid #AED0EA;
+	padding: 3px;
+	position: relative;
+}
+ul.context li {
+	display: block;
+	float: none;
+	min-width: 120px;
+	padding: 5px 8px 5px 32px;
+}
+ul.context li.hover, ul.context li:hover {
+	background: url("themes/chocolate/images/ui-bg_highlight.png") repeat-x scroll 50% 54% #DBEEFA;
+	border: 1px solid #c3c3c3;
+	padding: 4px 7px 4px 31px;
+}
+ul.context li a {
+	margin-left: -28px;
+	padding-left: 28px;
+}
+ul.context ul {
+	left: 150px;
+	top: 0px;
+}
+
+/* menu icons */
+ul.dropdown li a.itable			{	background-position: -6px -29px; }
+ul.dropdown li a.iview			{	background-position: -6px -54px; }
+ul.dropdown li a.iproc			{	background-position: -6px -78px; }
+ul.dropdown li a.ifunc			{	background-position: -6px -101px; }
+ul.dropdown li a.itrig			{	background-position: -6px -125px; }
+ul.dropdown li a.ievt			{	background-position: -6px -150px; }
+
+ul.dropdown li a.itrunc			{	background-position: -6px -810px; }
+ul.dropdown li a.idrop			{	background-position: -6px -268px }
+ul.dropdown li a.iren			{	background-position: -6px -810px; }
+
+ul.dropdown li a.iimprt			{	background-position: -6px -413px; }
+ul.dropdown li a.iexpdb			{	background-position: -6px -638px; }
+ul.dropdown li a.iexprt			{	background-position: -6px -292px; }
+
+ul.dropdown li a.itprc			{	background-position: -7px -548px; }
+ul.dropdown li a.itusr			{	background-position: -7px -578px; }
+ul.dropdown li a.itchk			{	background-position: -5px -609px; }
+ul.dropdown li a.itsrch			{	background-position: -5px -668px; }
+
+ul.dropdown li a.ihlp			{	background-position: -7px -341px; }
+ul.dropdown li a.idocs			{	background-position: -7px -461px; }
+ul.dropdown li a.itutor			{	background-position: -7px -516px; }
+ul.dropdown li a.iftr			{	background-position: -7px -487px; }
+ul.dropdown li a.ibug			{	background-position: -7px -366px; }
+
+ul.dropdown li a.irfrsh			{	background-position: -6px -388px; }
+
+/* special case */
+ul.dropdown li a.check			{	background-position: -6px -246px; }
+ul.dropdown li a.ilgout			{	background: url("themes/chocolate/images/objects.png") no-repeat; padding-left: 26px; background-position: -5px -440px; }
