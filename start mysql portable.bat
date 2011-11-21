@@ -1,7 +1,10 @@
 @ECHO OFF
 
-CALL scripts\setup.bat -noterminal
-CALL "%SCRIPTS%\util" checkmysqlptatus
+IF NOT DEFINED MYSQL (
+    CALL scripts\setup.bat -noterminal
+)
+
+CALL "%SCRIPTS%\util" checkmysqlstatus
 
 IF NOT "%MYSQL_STATUS%"=="ON" (
     ECHO.
@@ -15,7 +18,7 @@ IF NOT "%MYSQL_STATUS%"=="ON" (
         NET START MySQL
     )
 
-    CALL "%SCRIPTS%\util" checkmysqlptatus
+    CALL "%SCRIPTS%\util" checkmysqlstatus
 
     IF "%MYSQL_STATUS%"=="ON" (
         ECHO Iniciado.

@@ -12,6 +12,9 @@ SET SERVER=%ROOT%\server
 SET TOOLS=%ROOT%\tools
 SET WEBSERVER=%TOOLS%\webserver
 
+SET APACHE=%WEBSERVER%\bin
+SET PHP=%WEBSERVER%\php
+
 SET ACID=%CACHE%\acid
 SET DATABASE=%CACHE%\database
 SET MANGOS=%CACHE%\mangos
@@ -21,7 +24,7 @@ SET GIT=%TOOLS%\git\bin
 SET SVN=%TOOLS%\subversion
 SET WGET=%TOOLS%\wget\bin
 
-SET PATH=%WINMINPATH%;%MYSQL%\bin;%SERVER%;%TOOLS%;%GIT%;%SCRIPTS%;%SVN%;%WGET%
+SET PATH=%WINMINPATH%;%APACHE%;%PHP%;%MYSQL%\bin;%SERVER%;%TOOLS%;%GIT%;%SCRIPTS%;%SVN%;%WGET%
 
 CALL :CHECK_PREREQUISITES
 
@@ -44,7 +47,7 @@ IF NOT EXIST "%GIT%" (
     wget -q --no-check-certificate https://github.com/downloads/ariaththewise/easymangos/git.rar -O "%TEMP%\git.rar"
     
     IF EXIST "%TEMP%\git.rar" (
-        rar x "%TEMP%\git.rar" "%TOOLS%\"
+        unrar x "%TEMP%\git.rar" "%TOOLS%\"
     )
     
     IF EXIST "%GIT%\git.exe" (
@@ -63,7 +66,7 @@ IF NOT EXIST "%MYSQL%" (
     wget -q --no-check-certificate https://github.com/downloads/ariaththewise/easymangos/mysqlserver.rar -O "%TEMP%\mysqlserver.rar"
     
     IF EXIST "%TEMP%\mysqlserver.rar" (
-        rar x "%TEMP%\mysqlserver.rar" "%ROOT%\"
+        unrar x "%TEMP%\mysqlserver.rar" "%ROOT%\"
     )
     
     IF EXIST "%MYSQL%\bin\mysqldp.exe" (
@@ -79,10 +82,10 @@ IF NOT EXIST "%SVN%" (
     ECHO Descargando Subversion ...
     ECHO =============================
     
-    wget -q --no-check-certificate https://github.com/downloads/ariaththewise/easymangos/svn.rar -O "%TEMP%\svn.rar"
+    wget -q --no-check-certificate https://github.com/downloads/ariaththewise/easymangos/subversion.rar -O "%TEMP%\svn.rar"
     
     IF EXIST "%TEMP%\svn.rar" (
-        rar x "%TEMP%\svn.rar" "%TOOLS%\"
+        unrar x "%TEMP%\svn.rar" "%TOOLS%\"
     )
     
     IF EXIST "%SVN%\svn.exe" (
@@ -93,7 +96,7 @@ IF NOT EXIST "%SVN%" (
     )
 )
 
-IF NOT EXIST "%WEBSERVER%"
+IF NOT EXIST "%WEBSERVER%" (
     ECHO.
     ECHO Descargando el servidor web portable ...
     ECHO ===========================================
@@ -101,7 +104,7 @@ IF NOT EXIST "%WEBSERVER%"
     wget -q --no-check-certificate https://github.com/downloads/ariaththewise/easymangos/webserver.rar -O "%TEMP%\webserver.rar"
     
     IF EXIST "%TEMP%\webserver.rar" (
-        rar x "%TEMP%\webserver.rar" "%TOOLS%\"
+        unrar x "%TEMP%\webserver.rar" "%TOOLS%\"
     )
     
     IF EXIST "%WEBSERVER%\bin\httpdp.exe" (

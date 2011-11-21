@@ -4,16 +4,16 @@
     if($argc > 1)
     {
         $host = $argv[1];
-        $user = $argv[2];
-        $pass = $argv[3];
-        $port = $argv[4];
+        $port = $argv[2];
+        $user = $argv[3];
+        $pass = $argv[4];
     }
     else
     {
         $host = $_POST["host"];
+        $port = $_POST["port"];
         $user = $_POST["user"];
         $pass = $_POST["pass"];
-        $port = $_POST["port"];
     }
     
     $ytdbLastFixQuery = "SELECT column_name FROM information_schema.columns WHERE ".
@@ -36,7 +36,8 @@
         {
             while($row = mysql_fetch_assoc($result))
             {
-                $ytdbLastFix = substr($row["column_name"], 0, 3);
+                $db_Version_ytdb = explode("_", $row["column_name"]);
+                $ytdbLastFix = $db_Version_ytdb[0];
             }
             
             mysql_free_result($result);

@@ -8,7 +8,7 @@ IF "%1"=="find" (
 SET OPTIONS=%*
 
 IF NOT "%VCPATH%"=="" (
-    IF NOT "%VCPATH%"=="NULL" (        
+    IF NOT "%VCPATH%"=="NULL" (
         ECHO.
         ECHO Visual C++: Trabajando ...
         
@@ -30,28 +30,32 @@ CALL "%SCRIPTS%\checkArchitecture.bat"
 SET VS2008_ROOT=%SYSTEMDRIVE%\%PROGRAM_FILES%\Microsoft Visual Studio 9.0\Common7\IDE
 SET VS2010_ROOT=%SYSTEMDRIVE%\%PROGRAM_FILES%\Microsoft Visual Studio 10.0\Common7\IDE
 
-IF EXIST "%VS2010_ROOT%\devenv.exe" (    
+IF EXIST "%VS2010_ROOT%\devenv.exe" (
     SET VCNAME=Visual C++ 2010 Professional
     SET VCPATH=%VS2010_ROOT%\devenv.exe
-    SET LATEST_VC=2010    
+    SET LATEST_VC=2010
+    SET VCVER=100
     GOTO:EOF
 	
 ) ELSE IF EXIST "%VS2010_ROOT%\VCExpress.exe" (
     SET VCNAME=Visual C++ 2010 Express
     SET VCPATH=%VS2010_ROOT%\VCExpress.exe
-    SET LATEST_VC=2010    
+    SET LATEST_VC=2010
+    SET VCVER=100
     GOTO:EOF
 	
 ) ELSE IF EXIST "%VS2008_ROOT%\devenv.exe" (
     SET VCNAME=Visual C++ 2008 Professional
     SET VCPATH=%VS2008_ROOT%\devenv.exe
     SET LATEST_VC=2008
+    SET VCVER=90
     GOTO:EOF
 	
 ) ELSE IF EXIST "%VS2008_ROOT%\VCExpress.exe" (
     SET VCNAME=Visual C++ 2008 Express
     SET VCPATH=%VS2008_ROOT%\VCExpress.exe
-    SET LATEST_VC=2008    
+    SET LATEST_VC=2008
+    SET VCVER=90
     GOTO:EOF
 
 )
@@ -71,6 +75,16 @@ IF "%VC_CUSTOM_PATH_CONFIRM%"=="s" (
         SET VCNAME=%VC_NAME%
 	    SET VCPATH=%VC_PATH%
 		SET LATEST_VC=%VC_VERSION%
+        
+        IF "%VC_VERSION%"=="2005" (
+            SET VCVER=80
+            
+        ) ELSE IF "%VC_VERSION%"=="2008" (
+            SET VCVER=90
+            
+        ) ELSE IF "%VC_VERSION%"=="2010" (
+            SET VCVER=100
+        )
 		
 		GOTO:EOF
 	)
@@ -79,6 +93,7 @@ IF "%VC_CUSTOM_PATH_CONFIRM%"=="s" (
 SET VCNAME=No encontrado
 SET VCPATH=NULL
 SET LATEST_VC=NULL
+SET VCVER=NULL
 
 GOTO:EOF
 
